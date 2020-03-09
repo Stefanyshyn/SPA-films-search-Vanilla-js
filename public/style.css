@@ -1,0 +1,10 @@
+.searchForm{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchForm>input{
+    margin-right: 15px !important;
+}
