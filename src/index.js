@@ -1,9 +1,4 @@
+import searchFilms from "./events/SearchForm"
+import search from "./components/SearchForm";
 
-let searchform = `
-    <div  class='searchForm'>
-        <input class="form-control" type="text"/>
-        <button class="btn btn-dark">Saerch</button>
-    </div>
-`
-
-document.getElementById('app').innerHTML = searchform;
+document.getElementById('button-search-form').addEventListener("click", searchFilms)
