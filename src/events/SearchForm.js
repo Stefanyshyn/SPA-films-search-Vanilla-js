@@ -17,10 +17,10 @@ const searchMovies = async (e)=>{
     let data = json;
     let containerMovie = toHTML(`<div class="container-movies"> </div>`)
 
-    console.log(createMovie());
+    console.log(data)
 
     for(let movie of data.results)
-        containerMovie.appendChild(createMovie())
+        containerMovie.appendChild(createMovie(movie))
 
     document.getElementById('app').appendChild(containerMovie);
 }
