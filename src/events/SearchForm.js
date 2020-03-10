@@ -1,22 +1,20 @@
 
-console.log(process.env.API_MOIVE_DATABASE)
-
-const searchFilms = async (e)=>{
+const searchMovies = async (e)=>{
     let search = document.getElementById("search-field");
     if(!search)return;
     
-    let nameMoive = search.value+"";
-    if(!nameMoive.trim()) return;
+    let nameMovie = search.value+"";
+    if(!nameMovie.trim()) return;
 
     let result = await fetch('https://api.themoviedb.org/3/search/movie?'
-    + `&` + `api_key=${process.env.API_MOIVE_DATABASE}`
+    + `&` + `api_key=${process.env.API_MOVIE_DATABASE}`
     + `&` + `language=${`en-US`}`
-    + `&` + `query=${nameMoive}`
+    + `&` + `query=${nameMovie}`
     + `&` + `include_adult=${false}`
     )
     let json = await result.json();
-    let data = json.link.data;
+    let data = json;
     return data;
 }
 
-export default searchFilms;
+export default searchMovies;
