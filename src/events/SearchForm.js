@@ -15,8 +15,10 @@ const searchMovies = async (e)=>{
     )
     let json = await result.json();
     let data = json;
-    let containerMovie = toHTML(`<div class="container-movies"> </div>`)
-
+    
+    let containerMovie = document.getElementById("container-movies");
+    containerMovie = containerMovie?containerMovie : toHTML(`<div id="container-movies"> </div>`)
+    containerMovie.innerHTML='';
     console.log(data)
 
     for(let movie of data.results)
