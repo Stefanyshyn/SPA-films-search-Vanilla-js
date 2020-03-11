@@ -13,16 +13,29 @@ body{
 }
 
 .movie{
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
+}
+.movie-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 200px;
+    max-width: 140px;
+    min-height: 200px;
+    min-width: 140px;
+    margin: 10px;
+
+}
+.movie-img>img{
+    height: 200px;
+    width: 140px;
 }
 .movie-description{
     display: flex;
     flex-direction: column;
-}
-.movie-img{
-    max-width: 100px;
-    max-height: 130px;
+    border-left: 2px solid rosybrown;
 }
 @media(max-width: 320px){
     .movie{
