@@ -10,7 +10,7 @@ class Movie {
         +`&page=${page}`);
         let json = await result.json();
         let data = json;
-        return json;    
+        return data;    
     }
     async getByQuery(query){
             if(query && !query.trim()) return;

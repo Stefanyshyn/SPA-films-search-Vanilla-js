@@ -15,14 +15,20 @@ const searchMovies = async (e)=>{
 }
 
 const addMovieToContainerMovie = (movies)=>{
+    const {MovieCollapse} = createMovie;
+    let Movie = MovieCollapse;
+
     let containerMovie = document.getElementById("container-movies");
-    containerMovie = containerMovie?containerMovie : toHTML(`<div id="container-movies"> </div>`)
+    if(!containerMovie){
+        containerMovie = toHTML(`<div id="container-movies"> </div>`);
+        document.getElementById('app').appendChild(containerMovie);    
+    }
+
     containerMovie.innerHTML='';
 
     for(let movie of movies.results)
-        containerMovie.appendChild(createMovie(movie))
+        containerMovie.appendChild(Movie(movie))
 
-    document.getElementById('app').appendChild(containerMovie);    
 }
 
 export default {searchMovies, addMovieToContainerMovie};

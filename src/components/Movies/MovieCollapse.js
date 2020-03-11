@@ -1,25 +1,23 @@
 import toHTML from '../../untils/convert'
+import ClickOnCollapseMovie from '../../events/Movie/ClickOnCollapseMovie'
 
-const createMovie = (movie)=>{
+const MovieCollapse = (movie)=>{
     let Movie = `
-    <div class="movie">
-        <div class="movie-img">
+    <div class="movie-coll">
+        <div class="movie-coll-img">
             <img src="${process.env.IMAGE_PATH + movie.poster_path}" alt="Image">
         </div>
-        <div class="movie-description">
+        <div class="movie-coll-description">
             <h4>${movie.title}</h4>
             <p>${movie.overview}</p>
         </div>
     </div>
     `
-    
     Movie = toHTML(Movie);
 
-    Movie.addEventListener('click', (e)=>{
-        alert(movie.title);
-    })
+    Movie.addEventListener('click', ClickOnCollapseMovie(movie))
 
     return Movie;
 }
 
-export default createMovie;
+export default MovieCollapse;
