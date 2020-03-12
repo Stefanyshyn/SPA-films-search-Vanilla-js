@@ -3,24 +3,40 @@ import ClickOnCollapseMovie from '../../events/Movie/ClickOnCollapseMovie'
 import moment from 'moment';
 
 const MovieExpand = (movie)=>{
-
     console.log(movie)
     let Movie = `
     <div class="movie">
         <div class="movie-img">
             <img src="${process.env.IMAGE_PATH + movie.poster_path}" alt="Image">
         </div>
-        <div class="movie-description">
-            <h4>${`${movie.title} (${moment(movie.release_date).format('YYYY')})`}</h4>
-            <div class="movie-details-description">
-                <span>Genres - ${movie.genres.map(genre=>genre.name).join(', ')}</span>
-                |
-                <span> Release Date - ${moment(movie.release_date).format('MMM DD YYYY')}</span>
+        <div>
+            <div class="movie-description">
+                <h4>${`${movie.title} (${moment(movie.release_date).format('YYYY')})`}</h4>
+                <div class="movie-details-description">
+                    <span>Genres - ${movie.genres.map(genre=>genre.name).join(', ')}</span>
+                    |
+                    <span> Release Date - ${moment(movie.release_date).format('MMM DD YYYY')}</span>
+                </div>
+                <p>${movie.overview}</p>
             </div>
-            <p>${movie.overview}</p>
+            <div id="movie-recomendations">
+                <h4>Recomendations</h4>
+                <div id="movie-recomendations-container">
+                ${
+                movie.recomendations.results.map((recomendation,index)=>{
+                    return (index<=4 && index > 0)?` 
+                    <div class="movie-recomendation">
+                        <img src="${process.env.IMAGE_PATH + recomendation.poster_path}" alt="Image">
+                    </div>                   
+                    `:``;
+                }).join('')
+                }
+                </div>
+            </div>
         </div>
     </div>
     `
+    
     Movie = toHTML(Movie);
 
     Movie.addEventListener('click', ClickOnCollapseMovie(movie))

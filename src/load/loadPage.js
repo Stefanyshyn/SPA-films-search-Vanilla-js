@@ -18,14 +18,19 @@ document.addEventListener('DOMContentLoaded', async ()=>{
         let genresFind = [];
         for(let genre_id of movie.genre_ids){
             let genreFind = genres.find((genre)=>{
-                console.log(genre);
                 return genre.id == genre_id});
                 genresFind = [...genresFind, genreFind];
         }    
         movie.genres = genresFind;
         delete movie.genre_ids;
-
     }
     
+    for(let movie of movies.results){
+        let recomendations = await ModelMovie.getByQuery(movie.title)
+        movie.recomendations = recomendations?recomendations:[];
+    }
+    console.log(movies.results)
+    
+
     searchMovies.addMovieToContainerMovie(movies)
 });

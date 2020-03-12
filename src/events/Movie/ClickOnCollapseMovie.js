@@ -8,7 +8,7 @@ const ClickOnCollapseMovie = (movie)=>{
                 app.removeChild(container);
             else return;
         }
-        app.appendChild(Movie(movie));    
+        app.appendChild(Movie(movie));
     }
 }
 
