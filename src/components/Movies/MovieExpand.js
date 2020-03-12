@@ -6,11 +6,11 @@ const MovieExpand = (movie)=>{
     let Movie = `
     <div class="movie">
         <div class="movie-img">
-            ${
-                movie.poster_path?
-                    `<img src="${process.env.IMAGE_PATH + movie.poster_path}" alt="Image">`:
-                    `<img src="../../../public/no_movie.svg" alt="Image">`
-                }
+        ${
+            movie.poster_path?
+                `<img src="${process.env.IMAGE_PATH + movie.poster_path}" alt="Image">`:
+                `<img src="../../../public/no_movie.svg" alt="Image">`
+        }
         </div>
         <div>
             <div class="movie-description">
@@ -26,7 +26,7 @@ const MovieExpand = (movie)=>{
                 <h4>Recomendations</h4>
                 <div id="movie-recomendations-container">
                 ${
-                movie.recomendations.results.map((recomendation,index)=>{
+                    movie.recomendations.results.map((recomendation,index)=>{
                     return (index<=4 && index > 0)?` 
                     <div class="movie-recomendation">
                     ${
