@@ -1,5 +1,5 @@
 import toHTML from '../../untils/convert'
-import ClickOnCollapseMovie from '../../events/Movie/ClickOnCollapseMovie'
+import ClickOnCollapseMovie from '../../controller/movieController/clickOnCollapseMovie'
 
 const MovieCollapse = (movie)=>{
     let Movie = `
