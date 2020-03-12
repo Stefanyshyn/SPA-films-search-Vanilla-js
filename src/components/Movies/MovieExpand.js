@@ -45,7 +45,10 @@ const MovieExpand = (movie)=>{
             recomendation.poster_path?
                 `<img src="${process.env.IMAGE_PATH + recomendation.poster_path}" alt="Image">`
                 :
-                `<img src="../../../public/no_movie.svg" alt="Image">`
+                `
+                    <img src="../../../public/no_movie.svg" alt="Image">
+                    <p>${recomendation.title}</p>
+                `
             }
             </div>`);
         containerRecomendation.appendChild(recomentdationElement);

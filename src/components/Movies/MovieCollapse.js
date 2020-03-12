@@ -8,7 +8,9 @@ const MovieCollapse = (movie)=>{
             ${
                 movie.poster_path?
                     `<img src="${process.env.IMAGE_PATH + movie.poster_path}" alt="Image">`:
-                    `<img src="../../../public/no_movie.svg" alt="Image">`
+                    `
+                        <img src="../../../public/no_movie.svg" alt="Image">
+                    `
                 }
         </div>
         <div class="movie-coll-description">
