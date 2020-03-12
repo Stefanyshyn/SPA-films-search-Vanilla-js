@@ -3,11 +3,14 @@ import ClickOnCollapseMovie from '../../events/Movie/ClickOnCollapseMovie'
 import moment from 'moment';
 
 const MovieExpand = (movie)=>{
-    console.log(movie)
     let Movie = `
     <div class="movie">
         <div class="movie-img">
-            <img src="${process.env.IMAGE_PATH + movie.poster_path}" alt="Image">
+            ${
+                movie.poster_path?
+                    `<img src="${process.env.IMAGE_PATH + movie.poster_path}" alt="Image">`:
+                    `<img src="../../../public/no_movie.svg" alt="Image">`
+                }
         </div>
         <div>
             <div class="movie-description">
@@ -26,7 +29,12 @@ const MovieExpand = (movie)=>{
                 movie.recomendations.results.map((recomendation,index)=>{
                     return (index<=4 && index > 0)?` 
                     <div class="movie-recomendation">
-                        <img src="${process.env.IMAGE_PATH + recomendation.poster_path}" alt="Image">
+                    ${
+                        recomendation.poster_path?
+                            `<img src="${process.env.IMAGE_PATH + recomendation.poster_path}" alt="Image">`
+                            :
+                            `<img src="../../../public/no_movie.svg" alt="Image">`
+                        }
                     </div>                   
                     `:``;
                 }).join('')
