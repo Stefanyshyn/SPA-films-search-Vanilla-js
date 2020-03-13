@@ -1,5 +1,5 @@
 body{
-    min-width: 240px;
+    min-width: 320px;
     background: rgb(158,255,101);
     background: linear-gradient(90deg, rgba(158,255,101,1) 0%, rgba(197,246,30,1) 22%, rgba(244,221,105,1) 53%, rgba(202,233,72,1) 82%, rgba(156,255,78,1) 100%)
 }
@@ -46,10 +46,20 @@ body{
 #movie-recomendations-container{
     display: flex;
     flex-wrap: wrap;
+    word-wrap: break-word;
+    justify-content: space-between;
+}
+.movie-recomendation{
+    max-width: 150px !important;
+    min-width: 150px !important;
+    margin: 2px;
 }
 .movie-recomendation>img{
     max-width: 150px !important;
-    min-width: 120px;
+    min-width: 150px !important;
+}
+.movie-recomendation>img{
+    min-height: 200px !important;
 }
 .movie-coll{
     margin-top: 10px;
