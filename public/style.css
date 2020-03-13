@@ -10,10 +10,12 @@ body{
     align-items: center;
 }
 
-.searchForm>input{
-    margin-right: 15px !important;
+.searchForm>img{
+    max-height: 34px !important;
 }
-
+.searchForm>input{
+    margin:0 15px 0 15px !important;
+}
 .movie{
     margin-top: 10px;
     display: flex;
