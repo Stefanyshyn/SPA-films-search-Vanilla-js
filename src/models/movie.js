@@ -30,13 +30,11 @@ class Movie {
         let data = json;
         return data;
     }
-    async addRecomendationToMovies(_movies){
-        let movies = _movies;
-        for(let movie of movies){
-            let recomendations = await this.getByQuery(recomendationMovieName(movie.title))
-            movie.recomendations = recomendations?recomendations:[];
-        }
-        return movies
+    async addRecomendationsToMovie(_movie){
+        let movie = _movie;
+        let recomendations = await this.getByQuery(recomendationMovieName(movie.title))
+        movie.recomendations = recomendations?recomendations:[];
+        return movie
     }    
     
 }

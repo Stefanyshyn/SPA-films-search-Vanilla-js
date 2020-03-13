@@ -1,7 +1,6 @@
 import toHTML from '../../untils/convert'
-import ClickOnCollapseMovie from '../../controller/movieController/clickOnCollapseMovie'
 import moment from 'moment';
-
+import MovieRecomendation from './MovieRecomendation'
 const MovieExpand = (movie)=>{
     let Movie = `
     <div class="movie">
@@ -30,31 +29,15 @@ const MovieExpand = (movie)=>{
         </div>
     </div>
     `
-
     Movie = toHTML(Movie);
     
     let containerRecomendation = Movie.children[1].children[1].children[1];
-    
-    
+        
     for(let i=1; i <=4 && i < movie.recomendations.results.length; ++i){
         let recomendation = movie.recomendations.results[i];
-
-    let recomentdationElement = toHTML(
-            `<div class="movie-recomendation">
-            ${
-            recomendation.poster_path?
-                `<img src="${process.env.IMAGE_PATH + recomendation.poster_path}" alt="Image">`
-                :
-                `
-                    <img src="../../../public/no_movie.svg" alt="Image">
-                    <p>${recomendation.title}</p>
-                `
-            }
-            </div>`);
-        containerRecomendation.appendChild(recomentdationElement);
+        
+        containerRecomendation.appendChild(MovieRecomendation(recomendation));
     }
-
-    Movie.addEventListener('click', ClickOnCollapseMovie(movie))
 
     return Movie;
 }

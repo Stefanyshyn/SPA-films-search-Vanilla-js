@@ -1,7 +1,6 @@
 import toHTML from '../../untils/convert'
 import ModelMovie from '../../models/movie';
 import addToContainerMovie from '../movieController/untils/addToContainerMovieController';
-import prepareMovies from '../movieController/untils/prepareMoviesBeforeAppendToContainer'
 
 const clickOnBtnSearchMovie = async(e)=>{
     let moviesElements = document.getElementsByClassName('movie');
@@ -24,10 +23,7 @@ const clickOnBtnSearchMovie = async(e)=>{
     let nameMovie = (search.value+"").trim();
     if(!nameMovie) return;
 
-
     let movies = await ModelMovie.getByQuery(nameMovie);
-    
-    movies.result = prepareMovies(movies.results);
 
     addToContainerMovie(movies.results)
 }

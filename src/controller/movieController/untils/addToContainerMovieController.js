@@ -1,10 +1,8 @@
 import toHTML from "../../../untils/convert";
-import createMovie from "../../../components/Movies";
+import MovieCollapse from "../../../components/Movies/MovieCollapse";
 
 const addToContainerMovie = (movies)=>{
-    const {MovieCollapse} = createMovie;
-    let Movie = MovieCollapse;
-
+    
     let containerMovie = document.getElementById("container-movies");
     if(!containerMovie){
         containerMovie = toHTML(`<div id="container-movies"> </div>`);
@@ -14,7 +12,7 @@ const addToContainerMovie = (movies)=>{
     containerMovie.innerHTML='';
 
     for(let movie of movies){
-        containerMovie.appendChild(Movie(movie))
+        containerMovie.appendChild(MovieCollapse(movie))
     }
 }
 

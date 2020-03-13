@@ -1,4 +1,4 @@
-import prepareMovies from './untils/prepareMoviesBeforeAppendToContainer'
+import prepareMovie from './untils/prepareMovieBeforeAppendToContainer'
 import addToContainerMovie from './untils/addToContainerMovieController'
 import ModelMovie from '../../models/movie'
 
@@ -13,7 +13,8 @@ const loadPopularMovies = async (e)=>{
 
     let movies = await ModelMovie.getByPopular(1);    
 
-    movies.result = prepareMovies(movies.results);
+    for(let movie of movies.results)
+
     addToContainerMovie(movies.results)
 }
 
