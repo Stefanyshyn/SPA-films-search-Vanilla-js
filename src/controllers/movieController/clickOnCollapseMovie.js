@@ -1,6 +1,6 @@
 import Movie from '../../components/Movies/MovieExpand';
 import _ from 'lodash';
-import prepareMovie from '../../controller/movieController/untils/prepareMovieBeforeAppendToContainer'
+import prepareMovie from '../../controllers/movieController/untils/prepareMovieBeforeAppendToContainer'
 
 const ClickOnCollapseMovie = (_movie)=>{
     return async(e)=>{

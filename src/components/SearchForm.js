@@ -1,5 +1,5 @@
 import toHTML from '../untils/convert';
-import clickOnBtnSearchMovie from "../controller/searchFormController/clickOnBtnSearchMovie"
+import clickOnBtnSearchMovie from "../controllers/searchFormController/clickOnBtnSearchMovie"
 
 const SearchForm = ()=>{
     let form = `

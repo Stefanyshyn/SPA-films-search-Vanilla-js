@@ -1,5 +1,5 @@
 import toHTML from '../../untils/convert'
-import ClickOnCollapseMovie from '../../controller/movieController/clickOnCollapseMovie'
+import ClickOnCollapseMovie from '../../controllers/movieController/clickOnCollapseMovie'
 
 const MovieRecomendation = (_movie)=>{
     let movie = _movie;
@@ -16,7 +16,7 @@ const MovieRecomendation = (_movie)=>{
         }
         </div>
     `
-    
+
     let MovieElement = toHTML(Movie);
 
     MovieElement.addEventListener('click', ClickOnCollapseMovie(movie))
