@@ -22,7 +22,10 @@ const MovieExpand = (movie)=>{
                     |
                     <span> Release Date - ${moment(movie.release_date).format('MMM DD YYYY')}</span>
                 </div>
-                <p>${movie.overview}</p>
+                <div class="movie-overview">
+                    <h4>Overview</h4>
+                    <p>${movie.overview}</p>
+                </div>
             </div>
             <div id="movie-recomendations">
                 <h4>Recomendations</h4>
