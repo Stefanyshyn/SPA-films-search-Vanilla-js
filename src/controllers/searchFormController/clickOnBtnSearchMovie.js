@@ -1,6 +1,8 @@
 import toHTML from '../../untils/convert'
 import ModelMovie from '../../models/movie';
 import addToContainerMovie from '../movieController/untils/addToContainerMovieController';
+import _ from 'lodash'
+import EmptyElement from '../../components/EmptyElement'
 
 const clickOnBtnSearchMovie = async(e)=>{
     let moviesElements = document.getElementsByClassName('movie');
@@ -24,8 +26,9 @@ const clickOnBtnSearchMovie = async(e)=>{
     if(!nameMovie) return;
 
     let movies = await ModelMovie.getByQuery(nameMovie);
-
-    addToContainerMovie(movies.results)
+    if(_.isEmpty(movies.results))
+        containerMovie.appendChild(EmptyElement())
+    else addToContainerMovie(movies.results)
 }
 
 export default clickOnBtnSearchMovie;

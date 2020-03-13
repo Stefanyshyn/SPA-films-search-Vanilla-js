@@ -9,12 +9,17 @@ body{
     justify-content: center;
     align-items: center;
 }
-
 .searchForm>img{
     max-height: 34px !important;
 }
 .searchForm>input{
     margin:0 15px 0 15px !important;
+}
+.empty-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .movie{
     margin-top: 10px;

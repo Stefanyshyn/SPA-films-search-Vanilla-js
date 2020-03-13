@@ -13,9 +13,10 @@ const loadPopularMovies = async (e)=>{
 
     let movies = await ModelMovie.getByPopular(1);    
 
-    for(let movie of movies.results)
+    if(_.isEmpty(movies.results))
+        containerMovie.appendChild(EmptyElement())
+    else addToContainerMovie(movies.results)
 
-    addToContainerMovie(movies.results)
 }
 
 export default loadPopularMovies;
