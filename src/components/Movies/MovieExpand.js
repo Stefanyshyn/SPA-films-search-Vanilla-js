@@ -1,6 +1,9 @@
 import toHTML from '../../untils/convert'
 import moment from 'moment';
 import MovieRecomendation from './MovieRecomendation'
+import _ from 'lodash'
+import EmptyElement from '../EmptyElement'
+
 const MovieExpand = (movie)=>{
     let Movie = `
     <div class="movie">
@@ -32,7 +35,12 @@ const MovieExpand = (movie)=>{
     Movie = toHTML(Movie);
     
     let containerRecomendation = Movie.children[1].children[1].children[1];
-        
+    
+    if(_.isEmpty(movie.recomendations.results))
+    {
+        containerRecomendation.appendChild(EmptyElement())
+        return;
+    }
     for(let i=1; i <=4 && i < movie.recomendations.results.length; ++i){
         let recomendation = movie.recomendations.results[i];
         

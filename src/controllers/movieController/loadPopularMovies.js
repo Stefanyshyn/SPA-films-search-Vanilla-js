@@ -1,5 +1,5 @@
-import prepareMovie from './untils/prepareMovieBeforeAppendToContainer'
 import addToContainerMovie from './untils/addToContainerMovieController'
+import EmptyElement from '../../components/EmptyElement'
 import ModelMovie from '../../models/movie'
 
 const loadPopularMovies = async (e)=>{
