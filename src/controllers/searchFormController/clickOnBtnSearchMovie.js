@@ -10,17 +10,18 @@ import Pagination from '../../components/Pagination';
 const clickOnBtnSearchMovie = async(e)=>{
     let app = document.getElementById('app');
 
-    deleteController.deletePagination();
-    deleteController.deleteMovieExpand();
-    
-    app.appendChild(Spinner())
-    let containerMovie = chechContainerMovieController();
 
     let search = document.getElementById("search-field");
     if(!search)return;
 
     let nameMovie = (search.value+"").trim();
     if(!nameMovie) return;
+
+    deleteController.deletePagination();
+    deleteController.deleteMovieExpand();
+    
+    app.appendChild(Spinner())
+    let containerMovie = chechContainerMovieController();
 
     let movies = await ModelMovie.getByQuery(nameMovie,1);
 
