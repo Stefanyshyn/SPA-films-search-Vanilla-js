@@ -17,13 +17,14 @@ class Movie {
         let data = json;
         return data;    
     }
-    async getByQuery(query){
+    async getByQuery(query, _page){
         if(query && !query.trim()) return;
-
+        let page = new Number(_page);
         let result = await fetch('https://api.themoviedb.org/3/search/movie?'
         + `&` + `api_key=${process.env.API_MOVIE_DATABASE}`
         + `&` + `language=${`en-US`}`
         + `&` + `query=${query}`
+        + `&` + `page=${page}`
         + `&` + `include_adult=${false}`
         )
         let json = await result.json();

@@ -108,3 +108,18 @@ body{
     min-height: 50px;
     min-width: 45px;
 }
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+.pagination>div>img{
+    width: 34px;
+}
+.pagination-input>input{
+    margin-left: 20px;
+}
+.pagination-input>span{
+    margin-right: 20px;
+}
