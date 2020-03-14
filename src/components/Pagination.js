@@ -5,7 +5,7 @@ const Pagination = (functoinSearchMovie, pageNumber, totalPages)=>{
     let pagination = toHTML(`<div class="pagination"> </div>`)
     if(pageNumber > totalPages)
         pageNumber = totalPages;
-        
+
     if(pageNumber != 1){
         let prevPage = 
         toHTML(`

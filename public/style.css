@@ -112,12 +112,15 @@ body{
 .pagination{
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
+    margin: 10px 0;    
 }
 .pagination>div>img{
     width: 34px;
 }
 .pagination-input>input{
+    min-width: 50px;
+    max-width: 50px;
     margin-left: 20px;
 }
 .pagination-input>span{

@@ -17,12 +17,12 @@ const loadPopularMovies = async (e)=>{
     
     let movies = await ModelMovie.getByPopular(1);    
 
-    let pagination = Pagination(ModelMovie.getByPopular,movies.page, movies.total_pages);
-    app.insertBefore(pagination, containerMovie)
-
     if(_.isEmpty(movies.results))
         containerMovie.appendChild(EmptyElement(`Nothing found`, `Try other keywords`))
     else addToContainerMovie(movies.results)
+
+    let pagination = Pagination(ModelMovie.getByPopular,movies.page, movies.total_pages);
+    app.appendChild(pagination)
 
     deleteController.deleteSpinner();
 }

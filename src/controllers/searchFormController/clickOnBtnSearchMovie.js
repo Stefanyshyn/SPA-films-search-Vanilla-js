@@ -23,12 +23,13 @@ const clickOnBtnSearchMovie = async(e)=>{
 
     let movies = await ModelMovie.getByQuery(nameMovie,1);
 
-    let pagination = Pagination(ModelMovie.getByQuery.bind(null, nameMovie),movies.page, movies.total_pages);
-    app.insertBefore(pagination, containerMovie)
-
     if(_.isEmpty(movies.results))
         containerMovie.appendChild(EmptyElement(`Nothing found`,`Try other keywords`))
     else addToContainerMovie(movies.results)
+
+    let pagination = Pagination(ModelMovie.getByQuery.bind(null, nameMovie),movies.page, movies.total_pages);
+    app.appendChild(pagination)
+
     deleteController.deleteSpinner();
 }
 
