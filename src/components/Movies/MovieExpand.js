@@ -3,6 +3,7 @@ import moment from 'moment';
 import MovieRecomendation from './MovieRecomendation';
 import _ from 'lodash';
 import EmptyElement from '../EmptyElement';
+const MAX_NUMBER_RECOMENDATION_MOVIE = 4;
 
 const MovieExpand = (movie)=>{
     let Movie = `
@@ -36,15 +37,20 @@ const MovieExpand = (movie)=>{
     </div>
     `
     Movie = toHTML(Movie);
-    
     let containerRecomendation = Movie.children[1].children[1].children[1];
     if(movie.recomendations.results.length <= 1){
         containerRecomendation.appendChild(EmptyElement(`Nothing found`, ``))
     }else{
-        for(let i=1; i <=4 && i < movie.recomendations.results.length; ++i){
+        //adding recomendation movies
+        let countRecomendations = 0;
+        for(let i=0; i < movie.recomendations.results.length; ++i){
+            if(MAX_NUMBER_RECOMENDATION_MOVIE == countRecomendations)break;
+            if(movie.id == movie.recomendations.results[i].id) continue;
+
             let recomendation = movie.recomendations.results[i];
 
             containerRecomendation.appendChild(MovieRecomendation(recomendation));
+            countRecomendations+=1;
         }
     }
     return Movie;

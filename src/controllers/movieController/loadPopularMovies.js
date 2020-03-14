@@ -9,7 +9,8 @@ const loadPopularMovies = async (e)=>{
     let app = document.getElementById('app');
 
     deleteController.deletePagination();
-
+    deleteController.deleteMovieExpand();
+    
     let search = document.getElementById("search-field");
     if(!search)return;
 

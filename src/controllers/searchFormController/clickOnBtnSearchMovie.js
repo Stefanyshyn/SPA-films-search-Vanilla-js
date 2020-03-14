@@ -11,7 +11,8 @@ const clickOnBtnSearchMovie = async(e)=>{
     let app = document.getElementById('app');
 
     deleteController.deletePagination();
-
+    deleteController.deleteMovieExpand();
+    
     app.appendChild(Spinner())
     let containerMovie = chechContainerMovieController();
 

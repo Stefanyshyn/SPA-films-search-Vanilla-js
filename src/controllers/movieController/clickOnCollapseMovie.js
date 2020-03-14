@@ -1,28 +1,25 @@
 import Movie from '../../components/Movies/MovieExpand';
-import _ from 'lodash';
 import prepareMovie from '../../controllers/movieController/untils/prepareMovieBeforeAppendToContainer'
+import deleteController from '../deleteController';
+import Spinner from '../../components/Spinner'
+
+let app = document.getElementById('app');
 
 const ClickOnCollapseMovie = (_movie)=>{
     return async(e)=>{
-        let movie = _.cloneDeep(_movie);
-
-        let container = document.getElementById('container-movies');
-        let movieElements = document.querySelectorAll('#app>.movie');
-        let app = document.getElementById('app');
-        if(app){
-            if(container){
-                app.removeChild(container);
-            }
-            if(movieElements){
-                for(let i = 0; i < movieElements.length; ++i){
-                    app.removeChild(movieElements[i]);
-                }
-            }
-        }
+        let movie = _movie;
         
+        deleteController.deletePagination();
+        deleteController.deleteMovieExpand();
+        deleteController.deletePagination();
+        deleteController.deleteContainerMovies();
+
+        app.appendChild(Spinner());
+
         movie = await prepareMovie(movie)
 
         app.appendChild(Movie(movie));
+        deleteController.deleteSpinner();
     }
 }
 

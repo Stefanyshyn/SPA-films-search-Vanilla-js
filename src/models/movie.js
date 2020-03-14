@@ -33,7 +33,7 @@ class Movie {
     }
     async addRecomendationsToMovie(_movie){
         let movie = _movie;
-        let recomendations = await this.getByQuery(recomendationMovieName(movie.title))
+        let recomendations = await this.getByQuery(recomendationMovieName(movie.title),1)
         movie.recomendations = recomendations?recomendations:[];
         return movie
     }    

@@ -23,4 +23,11 @@ const deletePagination = ()=>{
     }
 }
 
-export default {deleteSpinner, deleteMovieExpand, deletePagination}
+const deleteContainerMovies = ()=>{
+    let containerMovies = document.getElementById('container-movies')
+        
+    if(containerMovies)
+        containerMovies.parentElement.removeChild(containerMovies);        
+}
+
+export default {deleteSpinner, deleteMovieExpand, deletePagination, deleteContainerMovies}
