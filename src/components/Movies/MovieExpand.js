@@ -1,8 +1,8 @@
-import toHTML from '../../untils/convert'
+import toHTML from '../../untils/convert';
 import moment from 'moment';
-import MovieRecomendation from './MovieRecomendation'
-import _ from 'lodash'
-import EmptyElement from '../EmptyElement'
+import MovieRecomendation from './MovieRecomendation';
+import _ from 'lodash';
+import EmptyElement from '../EmptyElement';
 
 const MovieExpand = (movie)=>{
     let Movie = `
@@ -38,35 +38,16 @@ const MovieExpand = (movie)=>{
     Movie = toHTML(Movie);
     
     let containerRecomendation = Movie.children[1].children[1].children[1];
-    
-    if(_.isEmpty(movie.recomendations.results))
-    {
-        containerRecomendation.appendChild(EmptyElement())
-        return;
-    }
-    for(let i=1; i <=4 && i < movie.recomendations.results.length; ++i){
-        let recomendation = movie.recomendations.results[i];
-        
-        containerRecomendation.appendChild(MovieRecomendation(recomendation));
-    }
+    if(movie.recomendations.results.length <= 1){
+        containerRecomendation.appendChild(EmptyElement(`Nothing found`, ``))
+    }else{
+        for(let i=1; i <=4 && i < movie.recomendations.results.length; ++i){
+            let recomendation = movie.recomendations.results[i];
 
+            containerRecomendation.appendChild(MovieRecomendation(recomendation));
+        }
+    }
     return Movie;
 }
-`
-popularity: 871.5
-vote_count: 653
-video: false
-poster_path: "/uPGq1mkEXznUpapDmOSxbsybjfp.jpg"
-id: 475303
-adult: false
-backdrop_path: "/6fkqwqLEcDZOEAnBBfKAniwNxtx.jpg"
-original_language: "en"
-original_title: "A Rainy Day in New York"
-genre_ids: (2) [35, 10749]
-title: "A Rainy Day in New York"
-vote_average: 6.7
-overview: "Two young people arrive in New York to spend a weekend, but once they arrive they're met with bad weather and a series of adventures."
-release_date: "2019-07-26"
-`
 
 export default MovieExpand;

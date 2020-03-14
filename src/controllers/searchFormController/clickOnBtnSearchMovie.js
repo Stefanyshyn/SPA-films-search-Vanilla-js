@@ -3,10 +3,13 @@ import ModelMovie from '../../models/movie';
 import addToContainerMovie from '../movieController/untils/addToContainerMovieController';
 import _ from 'lodash'
 import EmptyElement from '../../components/EmptyElement'
+import Spinner from '../../components/Spinner';
 
 const clickOnBtnSearchMovie = async(e)=>{
     let moviesElements = document.getElementsByClassName('movie');
     let app = document.getElementById('app');
+    app.appendChild(Spinner())
+
     //TODO::refactor
     while(moviesElements.length)
         moviesElements?app.removeChild(moviesElements[0]):'';
@@ -27,8 +30,13 @@ const clickOnBtnSearchMovie = async(e)=>{
 
     let movies = await ModelMovie.getByQuery(nameMovie);
     if(_.isEmpty(movies.results))
-        containerMovie.appendChild(EmptyElement())
+        containerMovie.appendChild(EmptyElement(`Nothing found`,`Try other keywords`))
     else addToContainerMovie(movies.results)
+
+    let spinners = document.getElementsByClassName('spinner-wait')
+    for(let spinner of spinners){
+        spinner.parentElement.removeChild(spinner);        
+    }
 }
 
 export default clickOnBtnSearchMovie;

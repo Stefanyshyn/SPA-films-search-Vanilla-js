@@ -1,10 +1,10 @@
 import toHTML from '../untils/convert'
 
-const EmptyElement = ()=>{
+const EmptyElement = (title, message)=>{
     let empty = `
         <div class="empty-container">
-            <h4>Nothing found</h4>
-            <p>Try other keywords</p>
+            <h4>${title}</h4>
+            <p>${message}</p>
         </div>
     `
 

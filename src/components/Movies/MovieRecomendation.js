@@ -20,7 +20,7 @@ const MovieRecomendation = (_movie)=>{
     let MovieElement = toHTML(Movie);
 
     MovieElement.addEventListener('click', ClickOnCollapseMovie(movie))
-
+    
     return MovieElement;
 }
 

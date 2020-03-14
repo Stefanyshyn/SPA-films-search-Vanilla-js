@@ -14,7 +14,6 @@ const SearchForm = ()=>{
 
     formElement.children[0].addEventListener("click", loadPopularMovies)
     formElement.children[1].addEventListener('keypress', function (e) {
-        console.log(e.key) 
         if (e.key === 'Enter') {
             clickOnBtnSearchMovie();
         }
