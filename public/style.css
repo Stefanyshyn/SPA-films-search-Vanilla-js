@@ -18,6 +18,7 @@ body{
     margin-top: 10px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 .movie-img{
     display: flex;
@@ -88,6 +89,8 @@ body{
     .movie{
         display: flex;
         flex-direction: column;
+        justify-content: start;
+        align-items: center;
     }
 }
 .movie-details-description{
