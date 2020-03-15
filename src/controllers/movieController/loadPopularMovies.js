@@ -10,7 +10,7 @@ const loadPopularMovies = async (e)=>{
 
     deleteController.deletePagination();
     deleteController.deleteMovieExpand();
-    
+
     let search = document.getElementById("search-field");
     if(!search)return;
 
@@ -18,8 +18,11 @@ const loadPopularMovies = async (e)=>{
     
     let movies = await ModelMovie.getByPopular(1);    
 
-    if(_.isEmpty(movies.results))
+    if(_.isEmpty(movies.results)){
         containerMovie.appendChild(EmptyElement(`Nothing found`, `Try other keywords`))
+        deleteController.deleteSpinner();
+        return;
+    }
     else addToContainerMovie(movies.results)
 
     let pagination = Pagination(ModelMovie.getByPopular,movies.page, movies.total_pages);
