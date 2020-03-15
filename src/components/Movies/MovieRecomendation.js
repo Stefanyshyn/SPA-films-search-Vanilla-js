@@ -10,7 +10,7 @@ const MovieRecomendation = (_movie)=>{
             `<img src="${process.env.IMAGE_PATH + _movie.poster_path}" alt="Image">`
             :
             `
-                <img src="../../../public/no_movie.svg" alt="Image">
+                <img src="../../../no_movie.svg" alt="Image">
                 <p>${_movie.title}</p>
             `
         }

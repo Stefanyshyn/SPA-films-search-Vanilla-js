@@ -10,7 +10,7 @@ const Pagination = (functoinSearchMovie, pageNumber, totalPages)=>{
         let prevPage = 
         toHTML(`
             <div class="pagination-next">
-                <img src="../../public/arrow_left_burned.png" alt="<-">
+                <img src="../../arrow_left_burned.png" alt="<-">
                 <span>${pageNumber-1}</span>
             </div>
         `)
@@ -43,7 +43,7 @@ const Pagination = (functoinSearchMovie, pageNumber, totalPages)=>{
         toHTML(`
             <div class="pagination-prev">
                 <span>${pageNumber+1}</span>
-                <img src="../../public/arrow_right_burned.png" alt="->">
+                <img src="../../arrow_right_burned.png" alt="->">
             </div>
         `)
         nextPage.addEventListener('click',getPage(functoinSearchMovie, pageNumber+1))
