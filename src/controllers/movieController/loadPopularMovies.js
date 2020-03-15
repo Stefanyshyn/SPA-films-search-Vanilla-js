@@ -4,6 +4,7 @@ import ModelMovie from '../../models/movie'
 import Pagination from '../../components/Pagination';
 import deleteController from '../deleteController';
 import chechContainerMovieController from './untils/chechContainerMovieController';
+import _ from 'lodash';
 
 const loadPopularMovies = async (e)=>{
     let app = document.getElementById('app');

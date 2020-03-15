@@ -5,4 +5,4 @@ const app = document.getElementById('app');
 
 app.appendChild(SearchForm());
 
-document.addEventListener('DOMContentLoaded', loadPopularMovies);
+loadPopularMovies();
